@@ -1,53 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { apiClient } from '../../apiConfig';
 import { motion } from 'framer-motion';
-import { FaCheck, FaRegGem, FaRegStar, FaRegPaperPlane } from 'react-icons/fa';
+import { FaCheck, FaArrowRight, FaStar, FaGem } from 'react-icons/fa';
 import './Pricing.css';
 
 const Pricing = () => {
-  const pricingPlans = [
-    {
-      id: 1,
-      name: 'Basic',
-      price: 25,
-      features: [
-        'UI/UX Design',
-        'Web Development',
-        'App Design',
-        'SEO Marketing',
-      ],
-      icon: <FaRegPaperPlane />,
-      popular: false,
-    },
-    {
-      id: 2,
-      name: 'Standard',
-      price: 55,
-      features: [
-        'UI/UX Design',
-        'Web Development',
-        'App Design',
-        'SEO Marketing',
-        'Business Analysis',
-      ],
-      icon: <FaRegStar />,
-      popular: true,
-    },
-    {
-      id: 3,
-      name: 'Premium',
-      price: 85,
-      features: [
-        'UI/UX Design',
-        'Web Development',
-        'App Design',
-        'SEO Marketing',
-        'Business Analysis',
-        'Digital Marketing',
-      ],
-      icon: <FaRegGem />,
-      popular: false,
-    },
-  ];
+  const [pricingPlans, setPricingPlans] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Map string names from API to actual React components
+  const iconMap = {
+    '<FaArrowRight />': <FaArrowRight />,
+    '<FaStar />': <FaStar />,
+    '<FaGem />': <FaGem />,
+  };
+
+  useEffect(() => {
+    const fetchPricingPlans = async () => {
+      try {
+        const response = await apiClient.get('/pricing-plans');
+        setPricingPlans(response.data);
+      } catch (err) {
+        setError('Failed to fetch pricing plans.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPricingPlans();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -93,32 +76,47 @@ const Pricing = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {pricingPlans.map((plan) => (
-            <motion.div
-              key={plan.id}
-              className={`pricing-card ${plan.popular ? 'popular' : ''}`}
-              variants={itemVariants}
-            >
-              {plan.popular && <div className="popular-badge">Most Popular</div>}
-              <div className="card-header">
-                <div className="card-icon">{plan.icon}</div>
-                <h3 className="plan-name">{plan.name}</h3>
-              </div>
-              <div className="plan-price">
-                <span className="price">${plan.price}</span>
-                <span className="period">/month</span>
-              </div>
-              <ul className="features-list">
-                {plan.features.map((feature, index) => (
-                  <li key={index} className="feature-item">
-                    <FaCheck className="check-icon" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="btn btn-primary">Choose Plan</button>
-            </motion.div>
-          ))}
+          {loading && <p>Loading pricing plans...</p>}
+          {error && <p>{error}</p>}
+          {!loading && !error && pricingPlans.map((plan) => {
+            let featuresList = [];
+            if (plan.features && typeof plan.features === 'string') {
+              try {
+                featuresList = JSON.parse(plan.features);
+              } catch (e) {
+                console.error("Failed to parse features:", e);
+              }
+            }
+            
+            return (
+              <motion.div
+                key={plan.id}
+                className={`pricing-card ${plan.popular ? 'popular' : ''}`}
+                variants={itemVariants}
+              >
+                {plan.popular && <div className="popular-badge">Most Popular</div>}
+                <div className="card-header">
+                  <div className="card-icon">
+                    {iconMap[plan.icon] || <FaGem />}
+                  </div>
+                  <h3 className="plan-name">{plan.name}</h3>
+                </div>
+                <div className="plan-price">
+                  <span className="price">${plan.price}</span>
+                  <span className="period">/month</span>
+                </div>
+                <ul className="features-list">
+                  {featuresList.map((feature, index) => (
+                    <li key={index} className="feature-item">
+                      <FaCheck className="check-icon" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button className="btn btn-primary">Choose Plan</button>
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
     </section>

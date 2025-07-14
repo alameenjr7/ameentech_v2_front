@@ -1,5 +1,5 @@
 .portfolio {
-  background-color: #f8f9fa;
+  background-color: var(--gray-100);
 }
 
 .portfolio-header {
@@ -10,21 +10,21 @@
 }
 
 .portfolio-header .section-subtitle {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .portfolio-header .section-title {
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .portfolio-header .section-title .highlight {
-  color: #facc15;
+  color: var(--brand-lime);
   font-style: italic;
 }
 
 .portfolio-header .portfolio-btn-primary {
-  background-color: #364738;
-  color: #fff;
+  background-color: var(--brand-dark);
+  color: var(--white);
   display: inline-flex;
   align-items: center;
   gap: 1rem;
@@ -34,8 +34,8 @@
 }
 
 .portfolio-header .arrow-icon {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -56,7 +56,7 @@
 }
 
 .project-card {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -95,8 +95,8 @@
 }
 
 .tag {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   padding: var(--spacing-1) var(--spacing-3);
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
@@ -106,7 +106,7 @@
 .project-title {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
   grid-column: 1 / 2;
 }
 
@@ -116,8 +116,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #364738;
-  color: #facc15;
+  background-color: var(--brand-dark);
+  color: var(--brand-lime);
   display: flex;
   align-items: center;
   justify-content: center;

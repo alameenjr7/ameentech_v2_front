@@ -1,5 +1,5 @@
 .blog {
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .blog-header {
@@ -10,15 +10,15 @@
 }
 
 .header-text .section-subtitle {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .header-text .section-title {
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .header-text .section-title .highlight {
-  color: #facc15;
+  color: var(--brand-lime);
   font-style: italic;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .blog-card {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
@@ -68,8 +68,8 @@
 }
 
 .tag {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   padding: var(--spacing-1) var(--spacing-3);
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
@@ -79,17 +79,17 @@
 .blog-title {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
   margin-bottom: var(--spacing-2);
 }
 
 .blog-excerpt {
-  color: #6c757d;
+  color: var(--gray-600);
   margin-bottom: var(--spacing-4);
 }
 
 .read-more-link {
-  color: #364738;
+  color: var(--brand-dark);
   font-weight: 600;
   text-decoration: underline;
 }
@@ -97,8 +97,8 @@
 .btn-view-all {
   display: inline-flex;
   align-items: center;
-  background-color: #364738;
-  color: #fff;
+  background-color: var(--brand-dark);
+  color: var(--white);
   border-radius: 100px;
   padding: var(--spacing-1);
   text-decoration: none;
@@ -106,8 +106,8 @@
 }
 
 .btn-view-all:hover {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
 }
 
 .btn-text {
@@ -115,8 +115,8 @@
 }
 
 .btn-icon {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -127,8 +127,8 @@
 }
 
 .btn-view-all:hover .btn-icon {
-  background-color: #fff;
-  color: #364738;
+  background-color: var(--white);
+  color: var(--brand-dark);
   transform: rotate(45deg);
 }
 

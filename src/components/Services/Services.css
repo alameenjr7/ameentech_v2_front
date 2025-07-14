@@ -12,15 +12,14 @@
 
 .services-header {
   margin-bottom: var(--spacing-12);
+  text-align: center;
 }
 
 .services-header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  gap: var(--spacing-4);
+  display: inline-block;
+  text-align: left;
 }
+
 
 .section-subtitle {
   display: inline-block;
@@ -37,36 +36,10 @@
 }
 
 .section-title .highlight {
-  color: #facc15; /* Yellow */
+  color: var(--brand-lime);
 }
 
-.services-header .services-btn-primary {
-  background-color: #364738;
-  color: #fff;
-  border: 2px solid #364738;
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: var(--spacing-2) var(--spacing-4);
-  border-radius: 100px;
-  position: relative;
-  margin-left: auto;
-  transition: all 0.3s ease;
-}
 
-.services-header .services-btn-primary:hover {
-  background-color: #facc15;
-  color: #fff;
-  border-color: #facc15;
-}
-
-.services-header .services-btn-primary svg {
-  transition: var(--transition-fast);
-}
-
-.services-header .services-btn-primary:hover svg {
-  transform: translateX(4px) rotate(45deg);
-}
 
 
 .services-grid {
@@ -82,6 +55,7 @@
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
   transition: var(--transition-normal);
   border: 1px solid var(--gray-100);
+  text-align: left;
 }
 
 .service-card:hover {
@@ -90,17 +64,18 @@
 }
 
 
+
 .service-icon {
   margin-bottom: var(--spacing-6);
-  background-color: var(--white);
+  background-color: var(--gray-100);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 
 .service-icon img {
   width: 40px;
@@ -121,7 +96,7 @@
 }
 
 .learn-more {
-  color: #364738;
+  color: var(--brand-dark);
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -130,7 +105,7 @@
 }
 
 .learn-more:hover {
-  color: var(--primary-green);
+  color: var(--brand-purple);
   gap: var(--spacing-3);
 }
 

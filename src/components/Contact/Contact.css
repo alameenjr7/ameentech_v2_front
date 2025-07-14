@@ -1,5 +1,5 @@
 .contact {
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .contact-content {
@@ -10,21 +10,21 @@
 }
 
 .contact-info .section-subtitle {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .contact-info .section-title {
-  color: #364738;
+  color: var(--brand-dark);
   margin-bottom: var(--spacing-4);
 }
 
 .contact-info .section-title .highlight {
-  color: #facc15;
+  color: var(--brand-lime);
   font-style: italic;
 }
 
 .contact-description {
-  color: #6c757d;
+  color: var(--gray-600);
   margin-bottom: var(--spacing-8);
 }
 
@@ -41,12 +41,12 @@
   align-items: center;
   gap: var(--spacing-4);
   font-size: var(--font-size-base);
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .icon-container {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -80,7 +80,7 @@
 .form-group label {
   font-size: var(--font-size-sm);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
   margin-bottom: var(--spacing-2);
 }
 
@@ -89,9 +89,9 @@
 .form-group textarea {
   width: 100%;
   padding: var(--spacing-3);
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--gray-300);
   border-radius: var(--radius-md);
-  background-color: #f8f9fa;
+  background-color: var(--gray-100);
   font-size: var(--font-size-base);
 }
 
@@ -102,8 +102,8 @@
 
 .btn-primary {
   align-self: flex-start;
-  background-color: #364738 !important;
-  color: #fff !important;
+  background-color: var(--brand-dark) !important;
+  color: var(--white) !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 1rem !important;
@@ -112,8 +112,8 @@
 }
 
 .arrow-icon {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   border-radius: 50%;
   width: 32px;
   height: 32px;

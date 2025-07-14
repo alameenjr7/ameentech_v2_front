@@ -1,0 +1,34 @@
+@import '../../styles/variables';
+
+.hero-section {
+  // On garde les variables CSS pour les propriétés qui peuvent changer dynamiquement (ex: thème sombre)
+  // ou pour la cohérence générale.
+  background-color: var(--light-green);
+  color: var(--gray-800);
+  padding: var(--spacing-16) var(--container-padding);
+  text-align: center;
+}
+
+.hero-title {
+  font-size: var(--font-size-4xl);
+  color: var(--primary-green);
+  margin-bottom: var(--spacing-4);
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-lg);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-8);
+  color: var(--gray-700);
+}
+
+/*
+ * C'est ici que la magie opère !
+ * On utilise les variables Sass ($) dans la media query.
+ * Le style à l'intérieur ne s'appliquera que sur les écrans plus grands que 768px.
+*/
+@media (min-width: $breakpoint-md) {
+  .hero-title {
+    font-size: var(--font-size-6xl);
+  }
+}

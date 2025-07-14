@@ -1,50 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { apiClient } from '../../apiConfig';
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaBriefcase } from 'react-icons/fa';
 import './Experience.css';
 
 const Experience = () => {
-  const education = [
-    {
-      id: 1,
-      period: '2012 - 2014',
-      institution: 'Harmony Institute',
-      degree: 'Master in Visual Arts',
-    },
-    {
-      id: 2,
-      period: '2008 - 2012',
-      institution: 'Aurora Academy',
-      degree: 'Master in Visual Arts',
-    },
-    {
-      id: 3,
-      period: '1996 - 2008',
-      institution: 'Crystalbrook',
-      degree: 'Master in Visual Arts',
-    },
-  ];
+  const [workExperiences, setWorkExperiences] = useState([]);
+  const [educations, setEducations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const workExperience = [
-    {
-      id: 1,
-      period: '2018 - 2024',
-      company: 'Insightlancer',
-      role: 'Master in Visual Arts',
-    },
-    {
-      id: 2,
-      period: '2016 - 2018',
-      company: 'Self-Employed',
-      role: 'Master in Visual Arts',
-    },
-    {
-      id: 3,
-      period: '2014 - 2016',
-      company: 'KG Graphics Studio',
-      role: 'Master in Visual Arts',
-    },
-  ];
+  useEffect(() => {
+    const fetchExperiences = async () => {
+      try {
+        const response = await apiClient.get('/work-experiences');
+        setWorkExperiences(response.data);
+      } catch (err) {
+        setError('Failed to fetch Experience.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchExperiences();
+  }, []);
+
+  useEffect(() => {
+    const fetchEducations = async () => {
+      try {
+        const response = await apiClient.get('/education');
+        setEducations(response.data);
+      } catch (err) {
+        setError('Failed to fetch Education.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEducations();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -98,7 +94,9 @@ const Experience = () => {
               <h3 className="card-title">Education</h3>
             </div>
             <div className="timeline">
-              {education.map((item) => (
+              {loading && <p>Loading Education...</p>}
+              {error && <p>{error}</p>}
+              {!loading && !error && educations.map((item) => (
                 <motion.div key={item.id} className="timeline-item" variants={itemVariants}>
                   <span className="timeline-period">{item.period}</span>
                   <h4 className="timeline-title">{item.institution}</h4>
@@ -122,7 +120,9 @@ const Experience = () => {
               <h3 className="card-title">Work Experience</h3>
             </div>
             <div className="timeline">
-              {workExperience.map((item) => (
+              {loading && <p>Loading workExperiences...</p>}
+              {error && <p>{error}</p>}
+              {!loading && !error && workExperiences.map((item) => (
                 <motion.div key={item.id} className="timeline-item" variants={itemVariants}>
                   <span className="timeline-period">{item.period}</span>
                   <h4 className="timeline-title">{item.company}</h4>

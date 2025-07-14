@@ -41,8 +41,8 @@ const Navbar = () => {
         <div className="navbar-content">
           {/* Logo */}
           <div className="navbar-logo">
-            <div className="logo-icon">B</div>
-            <span className="logo-text">Baaba.</span>
+            <div className="logo-icon">AT</div>
+            <span className="logo-text">AmeenTECH.</span>
           </div>
 
 

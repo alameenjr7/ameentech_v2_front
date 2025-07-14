@@ -1,33 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { apiClient } from '../../apiConfig';
 import { motion } from 'framer-motion';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import './FAQ.css';
 
-const faqs = [
-  {
-    question: 'What industries have you worked in as a product designer?',
-    answer: 'I have worked across various industries including e-commerce, finance, healthcare, and education, tailoring designs to meet specific user needs.',
-  },
-  {
-    question: 'Can I download your resume/CV for information?',
-    answer: 'Certainly! You can download my resume/CV directly from my website. It provides a comprehensive overview of my education, work experience, and design achievements.',
-  },
-  {
-    question: 'Are you available for freelance design work?',
-    answer: 'Yes, I am open to freelance projects. Please contact me to discuss your requirements.',
-  },
-  {
-    question: 'What tools do you use for your design work?',
-    answer: 'I primarily use Figma, Sketch, Adobe XD, and Photoshop for my design projects.',
-  },
-  {
-    question: 'How do I navigate through your portfolio projects?',
-    answer: 'You can browse my portfolio projects by clicking on the Portfolio link in the navigation bar or scrolling down to the Portfolio section.',
-  },
-];
-
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(1);
+  const [faqs, setFaqs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        const response = await apiClient.get('/faqs');
+        setFaqs(response.data);
+      } catch (err) {
+        setError('Failed to fetch FAQs.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFaqs();
+  }, []);
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -50,7 +47,9 @@ const FAQ = () => {
         </motion.div>
 
         <div className="faq-list">
-          {faqs.map((faq, index) => (
+          {loading && <p>Loading FAQs...</p>}
+          {error && <p>{error}</p>}
+          {!loading && !error && faqs.map((faq, index) => (
             <motion.div
               key={index}
               className={`faq-item ${activeIndex === index ? 'active' : ''}`}

@@ -1,11 +1,11 @@
 .footer {
-  background-color: #fff;
-  color: #364738;
+  background-color: var(--white);
+  color: var(--brand-dark);
 }
 
 .footer-top {
   padding: var(--spacing-16) 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--gray-300);
 }
 
 .footer-content {
@@ -20,14 +20,14 @@
   gap: var(--spacing-2);
   font-size: var(--font-size-xl);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
   text-decoration: none;
   margin-bottom: var(--spacing-4);
 }
 
 .logo-icon {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -38,7 +38,7 @@
 }
 
 .footer-description {
-  color: #6c757d;
+  color: var(--gray-600);
   margin-bottom: var(--spacing-6);
 }
 
@@ -48,8 +48,8 @@
 }
 
 .social-link {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -66,7 +66,7 @@
 .footer-title {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: #facc15;
+  color: var(--brand-lime);
   margin-bottom: var(--spacing-4);
 }
 
@@ -80,7 +80,7 @@
 
 .footer-list a,
 .footer-list li {
-  color: #364738;
+  color: var(--brand-dark);
   text-decoration: none;
 }
 
@@ -91,13 +91,13 @@
 .newsletter-input {
   flex-grow: 1;
   padding: var(--spacing-3);
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--gray-300);
   border-radius: var(--radius-md) 0 0 var(--radius-md);
 }
 
 .newsletter-btn {
-  background-color: #364738;
-  color: #facc15;
+  background-color: var(--brand-dark);
+  color: var(--brand-lime);
   border: none;
   padding: 0 var(--spacing-4);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
@@ -105,8 +105,8 @@
 }
 
 .footer-bottom {
-  background-color: #364738;
-  color: #fff;
+  background-color: var(--brand-dark);
+  color: var(--white);
   padding: var(--spacing-6) 0;
 }
 
@@ -117,7 +117,7 @@
 }
 
 .copyright .highlight {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .legal-links {
@@ -126,7 +126,7 @@
 }
 
 .legal-links a {
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
 }
 

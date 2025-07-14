@@ -1,54 +1,55 @@
+/* 🌐 HTML root config */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* For fixed navbar */
+  color-scheme: light dark;
+}
+
+/* 🔧 Application layout */
 .App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+/* 📦 Main content area */
 main {
   flex: 1;
-  padding-top: 80px; /* Height of the fixed navbar */
+  padding-top: 80px; /* Match navbar height */
 }
 
-/* Smooth scrolling for the entire app */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Height of the fixed navbar */
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* ✅ Scrollbar hidden (cross-browser) */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 * {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
 }
 
-/* Prevent content shift on page load */
+/* 📏 Prevent layout shift due to scrollbars */
 body {
   overflow-y: scroll;
 }
 
-/* Selection color */
+/* 🎨 Text selection color */
 ::selection {
-  background-color: var(--primary-green);
+  background-color: var(--brand-purple);
   color: var(--white);
 }
 
-/* Focus outline */
+/* ✨ Focus styles (accessibility-friendly) */
 :focus {
-  outline: 2px solid var(--primary-green);
+  outline: 2px solid var(--brand-purple);
   outline-offset: 2px;
 }
 
-/* Focus visible */
 :focus:not(:focus-visible) {
   outline: none;
 }
 
 :focus-visible {
-  outline: 2px solid var(--primary-green);
+  outline: 2px solid var(--brand-purple);
   outline-offset: 2px;
 }

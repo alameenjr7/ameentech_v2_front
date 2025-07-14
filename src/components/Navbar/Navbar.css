@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #364738; /* Dark Green */
+  background-color: var(--brand-dark);
   border-radius: 100px;
   padding: 8px 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -31,8 +31,8 @@
 }
 
 .logo-icon {
-  background-color: #facc15; /* Yellow */
-  color: #fff;
+  background-color: var(--brand-lime);
+  color: var(--white);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -46,7 +46,7 @@
 .logo-text {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: #fff;
+  color: var(--white);
 }
 
 
@@ -56,6 +56,7 @@
   gap: var(--spacing-8);
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 .navbar-item {
@@ -72,11 +73,11 @@
 }
 
 .navbar-link:hover {
-  color: #fff;
+  color: var(--white);
 }
 
 .navbar-link.active {
-  color: #facc15; /* Yellow */
+  color: var(--brand-lime);
 }
 
 .navbar-link::after {
@@ -86,7 +87,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #facc15; /* Yellow */
+  background-color: var(--brand-lime);
   transition: var(--transition-fast);
 }
 
@@ -101,8 +102,8 @@
 }
 
 .navbar-cta .btn-primary {
-  background-color: #fff !important;
-  color: #364738 !important;
+  background-color: var(--white) !important;
+  color: var(--brand-dark) !important;
   border-radius: 100px !important;
   padding: var(--spacing-2) var(--spacing-5) !important;
   font-weight: 600 !important;
@@ -113,13 +114,13 @@
 
 .navbar-cta .btn-primary:hover {
   transform: scale(1.05);
-  background-color: #fff !important;
+  background-color: var(--white) !important;
 }
 
 .navbar-toggle {
   display: none;
   font-size: var(--font-size-xl);
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
   padding: var(--spacing-2);
 }
@@ -130,14 +131,14 @@
   top: 100%;
   left: var(--spacing-4);
   right: var(--spacing-4);
-  background-color: #364738;
+  background-color: var(--brand-dark);
   box-shadow: var(--shadow-lg);
   transform: translateY(-20px);
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-normal);
   margin-top: 10px;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
 }
 
 
@@ -145,6 +146,7 @@
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
+  border-radius: var(--radius-lg);
 }
 
 .navbar-mobile-menu {
@@ -171,7 +173,7 @@
 }
 
 .navbar-mobile-link:hover {
-  color: #fff;
+  color: var(--white);
   background-color: rgba(255, 255, 255, 0.1);
 }
 

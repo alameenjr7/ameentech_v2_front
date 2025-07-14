@@ -1,21 +1,21 @@
 .tools-section {
-  background-color: #fff;
+  background-color: var(--white);
   padding: var(--spacing-20) 0;
   text-align: center;
 }
 
 .tools-section .section-subtitle {
-  color: #facc15;
+  color: var(--brand-lime);
   margin-bottom: var(--spacing-2);
 }
 
 .tools-section .section-title {
-  color: #364738;
+  color: var(--brand-dark);
   margin-bottom: var(--spacing-12);
 }
 
 .tools-section .section-title .highlight {
-  color: #facc15;
+  color: var(--brand-lime);
   font-style: italic;
 }
 
@@ -38,7 +38,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background-color: #f8f9fa;
+  background-color: var(--gray-100);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,10 +59,10 @@
 .tool-percent {
   font-size: var(--font-size-xl);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .tool-name {
   font-size: var(--font-size-base);
-  color: #6c757d;
+  color: var(--gray-600);
 }

@@ -1,0 +1,14 @@
+// 1. Importer les variables Sass.
+//    Ceci rend les variables $ disponibles et génère le bloc :root avec les variables --.
+@import 'variables';
+
+// 2. Définir les styles globaux de base.
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white);
+  color: var(--gray-800);
+  line-height: 1.5;
+}

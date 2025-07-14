@@ -1,5 +1,5 @@
 .testimonials {
-  background-color: #f8f9fa;
+  background-color: var(--gray-100);
 }
 
 .testimonials-header {
@@ -8,15 +8,15 @@
 }
 
 .testimonials-header .section-subtitle {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .testimonials-header .section-title {
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .testimonials-header .section-title .highlight {
-  color: #facc15;
+  color: var(--brand-lime);
   font-style: italic;
 }
 
@@ -33,7 +33,7 @@
 
 .testimonial-card {
   flex: 0 0 100%;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: var(--radius-lg);
   padding: var(--spacing-8);
   text-align: center;
@@ -48,19 +48,19 @@
   justify-content: center;
   gap: var(--spacing-1);
   margin-bottom: var(--spacing-4);
-  color: #facc15;
+  color: var(--brand-lime);
   font-size: var(--font-size-lg);
 }
 
 .rating span {
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
   margin-left: var(--spacing-2);
 }
 
 .testimonial-text {
   font-size: var(--font-size-base);
-  color: #6c757d;
+  color: var(--gray-600);
   line-height: 1.6;
   margin-bottom: var(--spacing-6);
 }
@@ -82,12 +82,12 @@
 .author-name {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .author-role {
   font-size: var(--font-size-sm);
-  color: #6c757d;
+  color: var(--gray-600);
 }
 
 .testimonial-controls {
@@ -112,13 +112,13 @@
 }
 
 .prev-btn {
-  background-color: #364738;
-  color: #facc15;
+  background-color: var(--brand-dark);
+  color: var(--brand-lime);
 }
 
 .next-btn {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
 }
 
 .control-btn:hover {

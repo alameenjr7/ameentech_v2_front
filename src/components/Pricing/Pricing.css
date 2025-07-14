@@ -1,5 +1,5 @@
 .pricing {
-  background-color: #f8f9fa;
+  background-color: var(--gray-100);
 }
 
 .pricing-header {
@@ -8,15 +8,15 @@
 }
 
 .pricing-header .section-subtitle {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .pricing-header .section-title {
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .pricing-header .section-title .highlight {
-  color: #facc15;
+  color: var(--brand-lime);
   font-style: italic;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .pricing-card {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: var(--radius-lg);
   padding: var(--spacing-8);
   text-align: center;
@@ -37,15 +37,15 @@
 }
 
 .pricing-card.popular {
-  background-color: #364738;
-  color: #fff;
+  background-color: var(--brand-dark);
+  color: var(--white);
   transform: scale(1.05);
   box-shadow: var(--shadow-lg);
 }
 
 .popular-badge {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   padding: var(--spacing-1) var(--spacing-3);
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
@@ -60,22 +60,22 @@
 
 .card-icon {
   font-size: 2.5rem;
-  color: #facc15;
+  color: var(--brand-lime);
   margin-bottom: var(--spacing-4);
 }
 
 .popular .card-icon {
-  color: #fff;
+  color: var(--white);
 }
 
 .plan-name {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .popular .plan-name {
-  color: #fff;
+  color: var(--white);
 }
 
 .plan-price {
@@ -85,16 +85,16 @@
 .price {
   font-size: 3rem;
   font-weight: 700;
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .popular .price {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .period {
   font-size: var(--font-size-base);
-  color: #6c757d;
+  color: var(--gray-600);
 }
 
 .popular .period {
@@ -113,7 +113,7 @@
   align-items: center;
   gap: var(--spacing-3);
   margin-bottom: var(--spacing-3);
-  color: #6c757d;
+  color: var(--gray-600);
 }
 
 .popular .feature-item {
@@ -121,18 +121,18 @@
 }
 
 .check-icon {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .btn-primary {
   width: 100%;
-  background-color: #facc15 !important;
-  color: #364738 !important;
+  background-color: var(--brand-lime) !important;
+  color: var(--brand-dark) !important;
 }
 
 .popular .btn-primary {
-  background-color: #facc15 !important;
-  color: #364738 !important;
+  background-color: var(--brand-lime) !important;
+  color: var(--brand-dark) !important;
 }
 
 @media (max-width: 1024px) {

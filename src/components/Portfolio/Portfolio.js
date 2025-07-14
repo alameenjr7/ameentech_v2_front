@@ -1,39 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
+import { apiClient, API_BASE_URL } from '../../apiConfig';
 import './Portfolio.css';
 
 const Portfolio = () => {
-  const projects = [
-    {
-      id: 1,
-      title: 'Beauty Product - Ecommerce Mobile App Solution',
-      tags: ['UI/UX Design', 'App Design', 'Wireframe'],
-      image: '/images/project-1.png',
-      url: '/#!',
-    },
-    {
-      id: 2,
-      title: 'Beauty Product Mobile App Landing Page Design',
-      tags: ['UI/UX Design', 'Web Design', 'Wireframe'],
-      image: '/images/project-2.png',
-      url: '/#!',
-    },
-    {
-      id: 3,
-      title: 'Coffee Shop App - Coffee Ordering App Solution',
-      tags: ['UI/UX Design', 'App Design', 'Wireframe'],
-      image: '/images/project-3.png',
-      url: '/#!',
-    },
-    {
-      id: 4,
-      title: 'Coffee Shop Mobile App Landing Page Design',
-      tags: ['UI/UX Design', 'Web Design', 'Wireframe'],
-      image: '/images/project-4.png',
-      url: '/#!',
-    },
-  ];
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await apiClient.get('/projects/active');
+        setProjects(response.data);
+      } catch (err) {
+        setError('Failed to fetch projects.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -87,30 +77,42 @@ const Portfolio = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              className="project-card"
-              variants={itemVariants}
-            >
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-              </div>
-              <div className="project-content">
-                <div className="project-tags">
-                  {project.tags.map((tag, index) => (
-                    <span key={index} className="tag">
-                      {tag}
-                    </span>
-                  ))}
+          {loading && <p>Loading projects...</p>}
+          {error && <p>{error}</p>}
+          {!loading && !error && projects.map((project) => {
+            const imageUrl = project.image 
+              ? `${API_BASE_URL.replace('/api', '')}/uploads/${project.image}`
+              : '';
+
+            return (
+              <motion.div
+                key={project.id}
+                className="project-card"
+                variants={itemVariants}
+              >
+                <div className="project-image">
+                  {imageUrl && <img src={imageUrl} alt={project.title} />}
                 </div>
-                <h3 className="project-title">{project.title}</h3>
-                <a href={project.url} className="project-link">
-                  <FaArrowRight />
-                </a>
-              </div>
-            </motion.div>
-          ))}
+                <div className="project-content">
+                  <div className="project-tags">
+                    {project.tags && typeof project.tags === 'string' 
+                      ? project.tags.split(',').map((tag, index) => (
+                          <span key={index} className="tag">
+                            {tag.trim()}
+                          </span>
+                        ))
+                      : null
+                    }
+                  </div>
+
+                  <h3 className="project-title">{project.title}</h3>
+                  <a href={project.url} className="project-link">
+                    <FaArrowRight />
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

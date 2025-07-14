@@ -1,5 +1,5 @@
 .experience {
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .experience-header {
@@ -8,15 +8,15 @@
 }
 
 .experience-header .section-subtitle {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .experience-header .section-title {
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .experience-header .section-title .highlight {
-  color: #facc15;
+  color: var(--brand-lime);
   font-style: italic;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .experience-card {
-  background-color: #f8f9fa;
+  background-color: var(--gray-100);
   border-radius: var(--radius-lg);
   padding: var(--spacing-8);
   box-shadow: var(--shadow-sm);
@@ -43,8 +43,8 @@
 }
 
 .card-icon {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -57,7 +57,7 @@
 .card-title {
   font-size: var(--font-size-xl);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 .timeline {
@@ -67,7 +67,7 @@
 .timeline-item {
   padding-left: var(--spacing-6);
   padding-bottom: var(--spacing-6);
-  border-left: 2px solid #e0e0e0;
+  border-left: 2px solid var(--gray-300);
   position: relative;
 }
 
@@ -84,25 +84,25 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #facc15;
+  background-color: var(--brand-lime);
 }
 
 .timeline-period {
   font-size: var(--font-size-sm);
-  color: #6c757d;
+  color: var(--gray-600);
   margin-bottom: var(--spacing-1);
 }
 
 .timeline-title {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
   margin-bottom: var(--spacing-1);
 }
 
 .timeline-subtitle {
   font-size: var(--font-size-base);
-  color: #6c757d;
+  color: var(--gray-600);
 }
 
 @media (max-width: 768px) {

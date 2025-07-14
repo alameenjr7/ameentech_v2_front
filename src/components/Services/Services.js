@@ -1,30 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
-
+import { apiClient } from '../../apiConfig';
 import './Services.css';
 
 const Services = () => {
-  const services = [
-    {
-      icon: '/images/services/ux.png',
-      title: 'UI/UX Design',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ...'
-    },
-    {
-      icon: '/images/services/app-design.png',
-      title: 'Application Design',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ...'
-    },
-    {
-      icon: '/images/services/web-design.png',
-      title: 'Website Design',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ...'
-    }
-  ];
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await apiClient.get('/services/active');
+        setServices(response.data);
+      } catch (err) {
+        setError('Failed to fetch services.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
 
   const containerVariants = {
+
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -60,12 +62,8 @@ const Services = () => {
               <span className="section-subtitle">- Services</span>
               <h2 className="section-title"><span className="highlight">Services</span> I Provide</h2>
             </div>
-            <a href="/#!" className="btn services-btn-primary">
-              View All Services <FaArrowRight />
-            </a>
           </div>
         </motion.div>
-
 
         <motion.div
           className="services-grid"
@@ -74,7 +72,9 @@ const Services = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {services.map((service, index) => (
+          {loading && <p>Loading services...</p>}
+          {error && <p>{error}</p>}
+          {!loading && !error && services.map((service, index) => (
             <motion.div
               key={index}
               className="service-card"
@@ -91,9 +91,11 @@ const Services = () => {
                 Learn more <FaArrowRight />
               </a>
 
+
             </motion.div>
           ))}
         </motion.div>
+
       </div>
     </section>
   );

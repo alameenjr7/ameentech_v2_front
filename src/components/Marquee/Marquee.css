@@ -1,6 +1,6 @@
 .marquee-section {
-  background-color: #facc15; /* Yellow */
-  color: #364738; /* Dark Green */
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
   padding: var(--spacing-4) 0;
   margin: 0;
   position: relative;
@@ -14,7 +14,7 @@
   left: 0;
   width: 100%;
   height: 20px;
-  background-color: #364738; /* Dark Green */
+  background-color: var(--brand-dark);
   z-index: -1;
 }
 
@@ -37,7 +37,7 @@
 .marquee-separator {
   font-size: var(--font-size-2xl);
   font-weight: 600;
-  color: #364738;
+  color: var(--brand-dark);
 }
 
 @keyframes marquee {

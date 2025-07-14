@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { apiClient } from '../../apiConfig';
 import './Tools.css';
 
-const tools = [
-  { name: 'Figma', percent: 98, icon: '/icons/figma.svg' },
-  { name: 'Sketch', percent: 92, icon: '/icons/sketch.svg' },
-  { name: 'Photoshop', percent: 90, icon: '/icons/photoshop.svg' },
-  { name: 'After Effects', percent: 85, icon: '/icons/aftereffects.svg' },
-  { name: 'Storybook', percent: 90, icon: '/icons/storybook.svg' },
-  { name: 'InVision', percent: 95, icon: '/icons/invision.svg' },
-];
-
 const Tools = () => {
+  const [tools, setTools] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchTools = async () => {
+      try {
+        const response = await apiClient.get('/tools');
+        setTools(response.data);
+      } catch (err) {
+        setError('Failed to fetch Tools.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTools();
+  }, []);
+
   return (
     <section className="tools-section">
       <div className="container">
@@ -20,7 +32,9 @@ const Tools = () => {
           Behind My Designs
         </h2>
         <div className="tools-grid">
-          {tools.map((tool, index) => (
+          {loading && <p>Loading FAQs...</p>}
+          {error && <p>{error}</p>}
+          {!loading && !error && tools.map((tool, index) => (
             <div key={index} className="tool-card">
               <div className="tool-icon-container">
                 <img src={tool.icon} alt={tool.name} className="tool-icon" />

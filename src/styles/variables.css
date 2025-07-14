@@ -1,10 +1,23 @@
 :root {
-  /* Colors */
-  --primary-green: #2d5a3d;
-  --secondary-green: #3d6b4d;
-  --accent-yellow: #ffd700;
-  --light-green: #f0f8f0;
+  /* 🎨 Couleurs basées sur le logo */
+  --brand-purple: #7552E5;
+  --brand-cyan: #34C9F4;
+  --brand-lime: #BADC4A;
+  --brand-dark: #2E2D36;
+  --brand-light: #F3F0FD;
+
+  /* 
+    Variables existantes mappées sur les nouvelles couleurs de la marque pour la compatibilité.
+    TODO: Refactoriser les composants pour utiliser directement les variables brand-*.
+  */
+  --primary-green: var(--brand-purple);
+  --secondary-green: var(--brand-cyan);
+  --accent-yellow: var(--brand-lime);
+  --light-green: var(--brand-light);
   --white: #ffffff;
+  --black: #000000;
+
+  /* Grayscale */
   --gray-100: #f8f9fa;
   --gray-200: #e9ecef;
   --gray-300: #dee2e6;
@@ -14,10 +27,11 @@
   --gray-700: #495057;
   --gray-800: #343a40;
   --gray-900: #212529;
-  --black: #000000;
 
-  /* Typography */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  /* 🖋 Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+
+  /* Font sizes (mobile-first) */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -29,7 +43,7 @@
   --font-size-5xl: 3rem;
   --font-size-6xl: 3.75rem;
 
-  /* Spacing */
+  /* 📏 Spacing scale */
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
   --spacing-3: 0.75rem;
@@ -43,7 +57,7 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
 
-  /* Border radius */
+  /* 🟦 Border radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
@@ -51,22 +65,22 @@
   --radius-2xl: 1rem;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  /* 🌫 Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
 
-  /* Transitions */
+  /* ⏱ Transitions */
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 300ms ease-in-out;
   --transition-slow: 500ms ease-in-out;
 
-  /* Container */
+  /* 📦 Layout container */
   --container-max-width: 1200px;
   --container-padding: 1rem;
 
-  /* Breakpoints */
+  /* 📱 Breakpoints */
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;

@@ -1,6 +1,6 @@
 .faq {
-  background-color: #364738;
-  color: #fff;
+  background-color: var(--brand-dark);
+  color: var(--white);
 }
 
 .faq-header {
@@ -9,15 +9,15 @@
 }
 
 .faq-header .section-subtitle {
-  color: #facc15;
+  color: var(--brand-lime);
 }
 
 .faq-header .section-title {
-  color: #fff;
+  color: var(--white);
 }
 
 .faq-header .highlight {
-  color: #facc15;
+  color: var(--brand-lime);
   font-style: italic;
 }
 
@@ -38,8 +38,8 @@
 }
 
 .faq-item.active {
-  background-color: #facc15;
-  color: #364738;
+  background-color: var(--brand-lime);
+  color: var(--brand-dark);
 }
 
 .faq-question {
