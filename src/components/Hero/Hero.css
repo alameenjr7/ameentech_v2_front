@@ -1,0 +1,365 @@
+.hero {
+  padding: 140px 0 80px;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-16);
+  align-items: center;
+}
+
+
+.hero-text {
+  z-index: 2;
+}
+
+.hero-welcome {
+  display: inline-block;
+  font-size: var(--font-size-base);
+  color: var(--gray-800);
+  margin-bottom: var(--spacing-4);
+  font-weight: 600;
+  border: 2px solid #fde047; /* Lighter Yellow */
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-sm);
+}
+
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: var(--spacing-2);
+  line-height: 1.1;
+}
+
+.hero-title .highlight {
+  color: #facc15; /* Yellow */
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background-color: #facc15; /* Yellow */
+  z-index: -1;
+  opacity: 0.8;
+  border-radius: 2px;
+}
+
+
+.hero-subtitle {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: var(--spacing-6);
+  line-height: 1.1;
+}
+
+
+.hero-description {
+  font-size: var(--font-size-lg);
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-8);
+  max-width: 500px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-cta .hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 100px;
+  padding: 5px;
+  background-color: #facc15;
+  gap: var(--spacing-3);
+  text-decoration: none;
+}
+
+.hero-cta .hero-btn-primary .btn-text {
+  background-color: #364738;
+  color: #fff;
+  padding: var(--spacing-2) var(--spacing-5);
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+.hero-cta .hero-btn-primary .btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  transition: var(--transition-fast);
+}
+
+.hero-cta .hero-btn-primary:hover .btn-icon {
+  transform: scale(1.1);
+}
+
+.hero-cta .hero-btn-primary .btn-icon svg {
+  font-size: 14px;
+}
+
+.hero-cta .hero-btn-outline {
+  border: 1px solid #000;
+  color: #000;
+  background-color: #fff;
+  border-radius: 100px;
+  padding: var(--spacing-3) var(--spacing-6);
+}
+
+.hero-cta .hero-btn-outline:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-container::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: #facc15; /* Yellow */
+  border-radius: 45% 55% 60% 40% / 40% 50% 50% 60%;
+  transform: rotate(15deg);
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-image-circle {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.hero-profile-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  transform: scale(1.1);
+}
+
+
+.hire-me-badge, .ui-ux-badge, .product-designer-badge {
+  position: absolute;
+  box-shadow: var(--shadow-lg);
+  font-weight: 600;
+  z-index: 3;
+  animation: float 4s ease-in-out infinite;
+}
+
+.hire-me-badge {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  background-color: #364738;
+  color: #facc15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  animation-delay: 2s;
+}
+
+.hire-me-text-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hire-me-text {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #facc15;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  /* This text-on-a-path effect is not fully achievable with simple CSS. 
+     The rotating container provides the motion. */
+}
+
+.hire-me-icon {
+  font-size: 24px;
+  transform: rotate(45deg);
+  color: #facc15;
+}
+
+.ui-ux-badge {
+  background-color: #facc15;
+  color: var(--gray-900);
+  bottom: 25%;
+  right: -50px;
+  border-radius: 100px;
+  padding: var(--spacing-2) var(--spacing-4);
+}
+
+.product-designer-badge {
+  background-color: #364738;
+  color: #fff;
+  bottom: 35%;
+  left: -60px;
+  border-radius: 100px;
+  padding: var(--spacing-2) var(--spacing-4);
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-content {
+    gap: var(--spacing-12);
+  }
+  
+  .hero-image-container {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 100px 0 var(--spacing-20);
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-12);
+    text-align: center;
+  }
+  
+  .hero-text {
+    order: 2;
+  }
+  
+  .hero-image {
+    order: 1;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .hero-description {
+    font-size: var(--font-size-base);
+    max-width: none;
+  }
+  
+  .hero-cta {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-image-container {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .hero-experience-badge,
+  .hero-projects-badge {
+    min-width: 100px;
+    padding: var(--spacing-3);
+  }
+  
+  .hero-experience-badge {
+    top: 10px;
+    left: -10px;
+  }
+  
+  .hero-projects-badge {
+    bottom: 10px;
+    right: -10px;
+  }
+  
+  .badge-number {
+    font-size: var(--font-size-xl);
+  }
+  
+  .badge-text {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hero-image-container {
+    width: 250px;
+    height: 250px;
+  }
+}

@@ -1,0 +1,147 @@
+.pricing {
+  background-color: #f8f9fa;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: var(--spacing-12);
+}
+
+.pricing-header .section-subtitle {
+  color: #facc15;
+}
+
+.pricing-header .section-title {
+  color: #364738;
+}
+
+.pricing-header .section-title .highlight {
+  color: #facc15;
+  font-style: italic;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-8);
+  align-items: center;
+}
+
+.pricing-card {
+  background-color: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-8);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.pricing-card.popular {
+  background-color: #364738;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.popular-badge {
+  background-color: #facc15;
+  color: #364738;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: var(--spacing-4);
+}
+
+.card-header {
+  margin-bottom: var(--spacing-6);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: #facc15;
+  margin-bottom: var(--spacing-4);
+}
+
+.popular .card-icon {
+  color: #fff;
+}
+
+.plan-name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: #364738;
+}
+
+.popular .plan-name {
+  color: #fff;
+}
+
+.plan-price {
+  margin-bottom: var(--spacing-6);
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #364738;
+}
+
+.popular .price {
+  color: #facc15;
+}
+
+.period {
+  font-size: var(--font-size-base);
+  color: #6c757d;
+}
+
+.popular .period {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: var(--spacing-8);
+  text-align: left;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
+  color: #6c757d;
+}
+
+.popular .feature-item {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.check-icon {
+  color: #facc15;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: #facc15 !important;
+  color: #364738 !important;
+}
+
+.popular .btn-primary {
+  background-color: #facc15 !important;
+  color: #364738 !important;
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .pricing-card.popular {
+    transform: scale(1);
+  }
+}
