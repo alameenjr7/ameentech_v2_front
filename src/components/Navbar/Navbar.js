@@ -26,12 +26,12 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { name: 'Home', to: 'hero' },
+    { name: 'Accueil', to: 'hero' },
     { name: 'Services', to: 'services' },
-    { name: 'About', to: 'about' },
-    { name: 'Projects', to: 'portfolio' },
+    { name: 'À propos', to: 'about' },
+    { name: 'Projets', to: 'portfolio' },
     { name: 'Blogs', to: 'news' },
-    { name: 'Testimonials', to: 'reviews' },
+    { name: 'Témoignages', to: 'reviews' },
   ];
 
 
@@ -75,7 +75,7 @@ const Navbar = () => {
               duration={500}
               className="btn btn-primary"
             >
-              Contact Me
+              Me Contacter
             </Link>
 
           </div>
@@ -114,7 +114,7 @@ const Navbar = () => {
                 className="btn btn-primary"
                 onClick={closeMenu}
               >
-                Contact Me
+                Me Contacter
               </Link>
 
             </li>

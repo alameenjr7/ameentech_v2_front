@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { apiClient } from '../../apiConfig';
 import './Marquee.css';
 
@@ -14,7 +14,7 @@ const Marquee = () => {
         const response = await apiClient.get('/marquees');
         setMarquees(response.data);
       } catch (err) {
-        setError('Failed to fetch Marquees.');
+        setError('Échec du chargement du contenu défilant. Veuillez actualiser la page.');
         console.error(err);
       } finally {
         setLoading(false);
@@ -24,23 +24,46 @@ const Marquee = () => {
     fetchMarquees();
   }, []);
 
-  const parsedItems = !loading && !error && marquees.length > 0
-    ? JSON.parse(JSON.parse(marquees[0].items))
-    : [];
+  const parsedItems = useMemo(() => {
+    if (loading || error || marquees.length === 0) {
+      return [];
+    }
+
+    try {
+      const items = marquees[0].items;
+      let parsed = [];
+      
+      if (typeof items === 'string') {
+        parsed = JSON.parse(items);
+        // If the parsed result is still a string, parse it again
+        if (typeof parsed === 'string') {
+          parsed = JSON.parse(parsed);
+        }
+      } else if (Array.isArray(items)) {
+        parsed = items;
+      }
+      
+      // Ensure we always return an array
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      console.error('Failed to parse marquee items:', error);
+      return [];
+    }
+  }, [loading, error, marquees]);
 
   return (
     <div className="marquee-section">
       <div className="marquee">
         <div className="marquee-content">
-          {loading && <p>Loading Marquees...</p>}
+          {loading && <p>Chargement du contenu défilant...</p>}
           {error && <p>{error}</p>}
-          {!loading && !error && parsedItems.map((item, index) => (
+          {!loading && !error && Array.isArray(parsedItems) && parsedItems.map((item, index) => (
             <React.Fragment key={index}>
               <span className="marquee-item">{item}</span>
               <span className="marquee-separator">*</span>
             </React.Fragment>
           ))}
-          {!loading && !error && parsedItems.map((item, index) => (
+          {!loading && !error && Array.isArray(parsedItems) && parsedItems.map((item, index) => (
             <React.Fragment key={`clone-${index}`}>
               <span className="marquee-item">{item}</span>
               <span className="marquee-separator">*</span>

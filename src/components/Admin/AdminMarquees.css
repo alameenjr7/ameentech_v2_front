@@ -1,0 +1,251 @@
+/* AdminMarquees Styles */
+
+.admin-marquees {
+  min-height: 100vh;
+  padding: 0;
+}
+
+.admin-marquees .page-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-marquees .header-content {
+  max-width: 800px;
+}
+
+.admin-marquees .page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-marquees .title-icon {
+  font-size: 1.5rem;
+  opacity: 0.9;
+}
+
+.admin-marquees .page-description {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.admin-marquees .header-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.admin-marquees .info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.admin-marquees .info-icon {
+  font-size: 1.25rem;
+  min-width: 24px;
+}
+
+.admin-marquees .info-content strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.admin-marquees .info-content p {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.admin-marquees .page-content {
+  padding: 0 2rem 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-marquees .page-header {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .admin-marquees .page-title {
+    font-size: 1.5rem;
+  }
+  
+  .admin-marquees .page-description {
+    font-size: 1rem;
+  }
+  
+  .admin-marquees .page-content {
+    padding: 0 1rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-marquees .page-header {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-marquees .page-title {
+    font-size: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Custom styles for marquee data */
+.admin-marquees .data-table .marquee-items {
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+  background-color: #f8f9fa;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.admin-marquees .data-table .marquee-date {
+  font-size: 0.875rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.admin-marquees .form-group .items-preview {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.admin-marquees .form-group .items-preview h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.admin-marquees .form-group .items-preview .preview-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.admin-marquees .form-group .items-preview .preview-item {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: #667eea;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.admin-marquees .form-group .json-error {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.admin-marquees .textarea-container {
+  position: relative;
+}
+
+.admin-marquees .btn-example {
+  transition: all 0.2s ease;
+}
+
+.admin-marquees .btn-example:hover {
+  background-color: #5a67d8 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-marquees .form-help {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.admin-marquees .text-danger {
+  color: #dc3545 !important;
+  font-weight: 500;
+}
+
+/* New marquee items preview styles */
+.admin-marquees .marquee-items-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-marquees .items-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #667eea;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-marquees .items-sample {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.admin-marquees .item-tag {
+  display: inline-block;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.125rem 0.375rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-marquees .more-items {
+  display: inline-block;
+  background: #f8f9fa;
+  color: #6c757d;
+  padding: 0.125rem 0.375rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid #dee2e6;
+}
+
+.admin-marquees .error-text {
+  color: #dc3545;
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 500;
+}

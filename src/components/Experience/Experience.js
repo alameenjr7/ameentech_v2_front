@@ -11,35 +11,23 @@ const Experience = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchExperiences = async () => {
+    const fetchData = async () => {
       try {
-        const response = await apiClient.get('/work-experiences');
-        setWorkExperiences(response.data);
+        const [experiencesResponse, educationsResponse] = await Promise.all([
+          apiClient.get('/work-experiences'),
+          apiClient.get('/education')
+        ]);
+        setWorkExperiences(experiencesResponse.data);
+        setEducations(educationsResponse.data);
       } catch (err) {
-        setError('Failed to fetch Experience.');
+        setError('Échec du chargement des données d\'expérience et d\'éducation.');
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchExperiences();
-  }, []);
-
-  useEffect(() => {
-    const fetchEducations = async () => {
-      try {
-        const response = await apiClient.get('/education');
-        setEducations(response.data);
-      } catch (err) {
-        setError('Failed to fetch Education.');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEducations();
+    fetchData();
   }, []);
 
   const containerVariants = {
@@ -63,6 +51,11 @@ const Experience = () => {
     },
   };
 
+  // Hide section if loading, error, or no data in both arrays
+  if (loading || error || (!workExperiences || workExperiences.length === 0) && (!educations || educations.length === 0)) {
+    return null;
+  }
+
   return (
     <section id="experience" className="experience section">
       <div className="container">
@@ -73,9 +66,9 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="section-subtitle">- Education & Work</span>
+          <span className="section-subtitle">- Éducation & Travail</span>
           <h2 className="section-title">
-            My <span className="highlight">Academic and Professional</span> Journey
+            Mon <span className="highlight">Parcours Académique et Professionnel</span>
           </h2>
         </motion.div>
 
@@ -94,9 +87,7 @@ const Experience = () => {
               <h3 className="card-title">Education</h3>
             </div>
             <div className="timeline">
-              {loading && <p>Loading Education...</p>}
-              {error && <p>{error}</p>}
-              {!loading && !error && educations.map((item) => (
+              {educations.map((item) => (
                 <motion.div key={item.id} className="timeline-item" variants={itemVariants}>
                   <span className="timeline-period">{item.period}</span>
                   <h4 className="timeline-title">{item.institution}</h4>
@@ -120,9 +111,7 @@ const Experience = () => {
               <h3 className="card-title">Work Experience</h3>
             </div>
             <div className="timeline">
-              {loading && <p>Loading workExperiences...</p>}
-              {error && <p>{error}</p>}
-              {!loading && !error && workExperiences.map((item) => (
+              {workExperiences.map((item) => (
                 <motion.div key={item.id} className="timeline-item" variants={itemVariants}>
                   <span className="timeline-period">{item.period}</span>
                   <h4 className="timeline-title">{item.company}</h4>
